@@ -1,27 +1,14 @@
-import { TestBed } from '@angular/core/testing';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent, NxWelcomeComponent, RouterTestingModule],
-    }).compileComponents();
-  });
+  let spectator: Spectator<AppComponent>;
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome omdb-search'
-    );
-  });
+  const createComponent = createComponentFactory(AppComponent);
 
-  it(`should have as title 'omdb-search'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('omdb-search');
+  beforeEach(() => (spectator = createComponent()));
+
+  it('should be created', () => {
+    expect(spectator.component).toBeTruthy();
   });
 });

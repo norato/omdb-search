@@ -2,7 +2,12 @@
   "name": "@omdb-search/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "ng start omdb-search",
+    "build": "nx run-many --target=build --all",
+    "test": "nx run-many --target=test --all",
+    "lint": "nx run-many --target=lint --all"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.1.0",
@@ -28,6 +33,7 @@
     "@angular/cli": "~16.1.0",
     "@angular/compiler-cli": "~16.1.0",
     "@angular/language-service": "~16.1.0",
+    "@ngneat/spectator": "^15.0.1",
     "@nx/cypress": "16.5.3",
     "@nx/eslint-plugin": "16.5.3",
     "@nx/jest": "16.5.3",
