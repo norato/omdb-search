@@ -27,10 +27,12 @@ describe('MoviesEffects', () => {
 
   describe('init$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: MoviesActions.initMovies() });
+      actions = hot('-a-|', {
+        a: MoviesActions.searchMovies({ title: 'batman' }),
+      });
 
       const expected = hot('-a-|', {
-        a: MoviesActions.loadMoviesSuccess({ movies: [] }),
+        a: MoviesActions.searchMoviesSuccess({ movies: [] }),
       });
 
       expect(effects.init$).toBeObservable(expected);

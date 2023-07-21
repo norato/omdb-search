@@ -1,20 +1,25 @@
 import { Injectable, inject } from '@angular/core';
-import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { switchMap, catchError, of } from 'rxjs';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, exhaustMap, map, of } from 'rxjs';
+import { MoviesService } from '../../services/movies.service';
 import * as MoviesActions from './movies.actions';
-import * as MoviesFeature from './movies.reducer';
 
 @Injectable()
 export class MoviesEffects {
   private actions$ = inject(Actions);
+  private moviesService = inject(MoviesService);
 
   init$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(MoviesActions.initMovies),
-      switchMap(() => of(MoviesActions.loadMoviesSuccess({ movies: [] }))),
+      ofType(MoviesActions.searchMovies),
+      exhaustMap((action) =>
+        this.moviesService
+          .searchMovieByTitle(action.title)
+          .pipe(map((movies) => MoviesActions.searchMoviesSuccess({ movies })))
+      ),
       catchError((error) => {
         console.error('Error', error);
-        return of(MoviesActions.loadMoviesFailure({ error }));
+        return of(MoviesActions.searchMoviesFailure({ error }));
       })
     )
   );

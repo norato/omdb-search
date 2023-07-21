@@ -20,7 +20,7 @@ describe('Movies Reducer', () => {
         createMoviesEntity('PRODUCT-AAA'),
         createMoviesEntity('PRODUCT-zzz'),
       ];
-      const action = MoviesActions.loadMoviesSuccess({ movies });
+      const action = MoviesActions.searchMoviesSuccess({ movies });
 
       const result: MoviesState = moviesReducer(initialMoviesState, action);
 

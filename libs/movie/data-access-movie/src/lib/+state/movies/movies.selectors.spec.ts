@@ -1,8 +1,8 @@
 import { MoviesEntity } from './movies.models';
 import {
-  moviesAdapter,
   MoviesPartialState,
   initialMoviesState,
+  moviesAdapter,
 } from './movies.reducer';
 import * as MoviesSelectors from './movies.selectors';
 

@@ -1,5 +1,5 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
 
 import * as MoviesActions from './movies.actions';
 import { MoviesEntity } from './movies.models';
@@ -26,15 +26,15 @@ export const initialMoviesState: MoviesState = moviesAdapter.getInitialState({
 
 const reducer = createReducer(
   initialMoviesState,
-  on(MoviesActions.initMovies, (state) => ({
+  on(MoviesActions.searchMovies, (state) => ({
     ...state,
     loaded: false,
     error: null,
   })),
-  on(MoviesActions.loadMoviesSuccess, (state, { movies }) =>
+  on(MoviesActions.searchMoviesSuccess, (state, { movies }) =>
     moviesAdapter.setAll(movies, { ...state, loaded: true })
   ),
-  on(MoviesActions.loadMoviesFailure, (state, { error }) => ({
+  on(MoviesActions.searchMoviesFailure, (state, { error }) => ({
     ...state,
     error,
   }))
