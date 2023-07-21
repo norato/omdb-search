@@ -6,7 +6,8 @@
     "start": "ng start omdb-search",
     "build": "nx run-many --target=build --all",
     "test": "nx run-many --target=test --all",
-    "lint": "nx run-many --target=lint --all"
+    "lint": "nx run-many --target=lint --all",
+    "storybook": "nx run common-ui:storybook"
   },
   "private": true,
   "dependencies": {
