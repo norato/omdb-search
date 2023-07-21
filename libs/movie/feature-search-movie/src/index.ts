@@ -1,1 +1,1 @@
-export * from './lib/movie-feature-search-movie.module';
+export * from './lib';
