@@ -19,8 +19,13 @@
           "apps/omdb-search/src/favicon.ico",
           "apps/omdb-search/src/assets"
         ],
-        "styles": ["apps/omdb-search/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/omdb-search/src/styles.scss",
+          "node_modules/bootstrap/scss/bootstrap.scss"
+        ],
+        "scripts": [
+          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+        ]
       },
       "configurations": {
         "production": {
