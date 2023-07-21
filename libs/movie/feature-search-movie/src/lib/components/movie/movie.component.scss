@@ -1,0 +1,49 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+.omdb-search-movie {
+  display: grid;
+  grid-template-areas:
+    'title'
+    'poster'
+    'info';
+
+  grid-template-rows: 50px 1fr auto;
+  grid-template-columns: 1fr;
+  align-items: center;
+  text-align: center;
+}
+
+.omdb-search-movie > .omdb-search-movie__title {
+  grid-area: title;
+}
+.omdb-search-movie > .omdb-search-movie__info {
+  grid-area: info;
+  align-self: baseline;
+  & .omdb-search-movie__info--btn {
+    width: 100%;
+  }
+}
+.omdb-search-movie > .omdb-search-movie__poster {
+  grid-area: poster;
+  margin-bottom: 24px;
+}
+
+@include media-breakpoint-up(lg) {
+  .omdb-search-movie {
+    display: grid;
+    grid-template-areas:
+      'title poster'
+      'info  poster';
+
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1fr 400px;
+    align-items: left;
+    text-align: left;
+  }
+
+  .omdb-search-movie
+    > .omdb-search-movie__info
+    > .omdb-search-movie__info--btn {
+    max-width: 200px;
+  }
+}
