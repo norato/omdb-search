@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@omdb-search/common-ui": ["libs/common-ui/src/index.ts"]
+      "@omdb-search/common-ui": ["libs/common-ui/src/index.ts"],
+      "@omdb-search/shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

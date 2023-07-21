@@ -10,6 +10,9 @@ type Story = StoryObj<StarRatingComponent>;
 
 export const StarRating: Story = {
   render: () => ({
-    props: {},
+    props: {
+      topStars: 5,
+      rating: '7.5/10',
+    },
   }),
 };
