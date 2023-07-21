@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StoreModule } from '@ngrx/store';
+import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromMovies from './+state/movies/movies.reducer';
+import { StoreModule } from '@ngrx/store';
 import { MoviesEffects } from './+state/movies/movies.effects';
+import * as fromMovies from './+state/movies/movies.reducer';
 
 @NgModule({
   imports: [

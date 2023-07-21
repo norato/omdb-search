@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { MoviesEntity } from '../+state/movies/movies.models';
 import { OMDB_API_CONFIG } from '../tokens/omdb.token';
 
@@ -14,8 +14,8 @@ export class MoviesService {
   searchMovieByTitle(title: string): Observable<MoviesEntity[]> {
     const { baseUrl, apiKey } = this.omdbApiConfig;
 
-    const url = `${baseUrl}&?apikey=${apiKey}&t=${title}`;
+    const url = `${baseUrl}?apikey=${apiKey}&t=${title}`;
 
-    return this.httpClient.get<MoviesEntity[]>(url);
+    return this.httpClient.get<MoviesEntity>(url).pipe(map((movie) => [movie]));
   }
 }

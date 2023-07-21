@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { HeroComponent } from '@omdb-search/common-ui';
-import { MovieDataAccessMovieModule } from '@omdb-search/movie/data-access-movie';
+import { MoviesFacadeService } from '@omdb-search/movie/data-access-movie';
 import { MovieComponent } from '../../components/movie/movie.component';
 import { SearchMovieFormComponent } from '../../components/search-movie-form/search-movie-form.component';
 
@@ -11,12 +12,21 @@ import { SearchMovieFormComponent } from '../../components/search-movie-form/sea
     HeroComponent,
     SearchMovieFormComponent,
     MovieComponent,
-    MovieDataAccessMovieModule,
+    AsyncPipe,
+    NgIf,
   ],
   templateUrl: './search-movie.component.html',
   styleUrls: ['./search-movie.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchMovieComponent {
+  private moviesFacade = inject(MoviesFacadeService);
 
+  movies$ = this.moviesFacade.movies$;
+
+  searchMovies(title: string | null) {
+    if (title) {
+      this.moviesFacade.searchMovies(title);
+    }
+  }
 }
