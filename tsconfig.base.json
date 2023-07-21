@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@omdb-search/common-ui": ["libs/common-ui/src/index.ts"],
+      "@omdb-search/movie/data-access-movie": [
+        "libs/movie/data-access-movie/src/index.ts"
+      ],
       "@omdb-search/movie/feature-search-movie": [
         "libs/movie/feature-search-movie/src/index.ts"
       ],
