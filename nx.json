@@ -70,10 +70,6 @@
     },
     "@nx/angular:component": {
       "style": "scss"
-    },
-    "@ngneat/spectator:spectator-component": {
-      "style": "scss",
-      "skipImports": true
     }
   }
 }
