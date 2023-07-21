@@ -1,1 +1,27 @@
-<p>search-movie-form works!</p>
+<div class="search-movie-form bg-light bg-gradient">
+  <div class="search-movie-form__input mt-3">
+    <input
+      class="form-control form-control-lg w-100"
+      type="text"
+      [placeholder]="placeholder"
+    />
+  </div>
+  <div class="search-movie-form__btn mt-3">
+    <button
+      type="button"
+      class="btn btn-lg btn-primary w-100"
+      (click)="onSearch()"
+    >
+      Search
+    </button>
+  </div>
+  <div class="search-movie-form__btn mt-3">
+    <button
+      type="button"
+      class="btn btn-lg btn-secondary w-100"
+      (click)="onClear()"
+    >
+      Reset
+    </button>
+  </div>
+</div>
