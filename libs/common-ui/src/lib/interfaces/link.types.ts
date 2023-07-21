@@ -1,4 +1,4 @@
-export interface HeaderLink {
+export interface ILink {
   title: string;
   link: string;
 }

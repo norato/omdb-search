@@ -1,7 +1,7 @@
 import { RouterTestingModule } from '@angular/router/testing';
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
+import { ILink } from '../../interfaces/link.types';
 import { HeaderComponent } from './header.component';
-import { HeaderLink } from './header.types';
 
 export default {
   title: 'Components / Header',
@@ -15,7 +15,7 @@ export default {
 
 type Story = StoryObj<HeaderComponent>;
 
-const links: HeaderLink[] = [
+const links: ILink[] = [
   {
     link: '/page-1',
     title: 'Page-1',

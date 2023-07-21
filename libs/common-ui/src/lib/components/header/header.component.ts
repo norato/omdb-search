@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { HeaderLink } from './header.types';
+import { ILink } from '../../interfaces/link.types';
 
 @Component({
   selector: 'omdb-search-header',
@@ -12,6 +12,6 @@ import { HeaderLink } from './header.types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  @Input() brand?: HeaderLink;
-  @Input() links?: HeaderLink[];
+  @Input() brand?: ILink;
+  @Input() links?: ILink[];
 }
