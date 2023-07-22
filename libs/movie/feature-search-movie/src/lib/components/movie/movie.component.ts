@@ -19,7 +19,7 @@ export class MovieComponent {
   heartRegular = heartRegular;
   heartSolid = heartSolid;
 
-  makeFavorites() {
+  makeFavorite() {
     this.favorite.next(this.movie);
   }
 }

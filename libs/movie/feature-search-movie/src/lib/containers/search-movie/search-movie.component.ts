@@ -1,7 +1,10 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { HeroComponent } from '@omdb-search/common-ui';
-import { MoviesFacadeService } from '@omdb-search/movie/data-access-movie';
+import {
+  MoviesEntity,
+  MoviesFacadeService,
+} from '@omdb-search/movie/data-access-movie';
 import { MovieComponent } from '../../components/movie/movie.component';
 import { SearchMovieFormComponent } from '../../components/search-movie-form/search-movie-form.component';
 
@@ -29,6 +32,12 @@ export class SearchMovieComponent {
       this.moviesFacade.searchMovies(title);
     } else {
       this.moviesFacade.clearMovies();
+    }
+  }
+
+  makefavorite(movie: MoviesEntity) {
+    if (movie.Title) {
+      this.moviesFacade.favoriteMovie(movie.Title);
     }
   }
 }

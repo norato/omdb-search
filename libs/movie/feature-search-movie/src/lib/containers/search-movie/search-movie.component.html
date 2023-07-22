@@ -7,4 +7,9 @@
   placeholder="Search for a movie"
   (search)="searchMovies($event)"
 />
-<omdb-search-movie *ngIf="movies$ | async as movie" [movie]="movie[0]" />
+
+<omdb-search-movie
+  *ngIf="movies$ | async as movie"
+  [movie]="movie[0]"
+  (favorite)="makefavorite($event)"
+/>

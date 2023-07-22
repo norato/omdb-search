@@ -18,9 +18,10 @@
     <button
       type="button"
       class="omdb-search-movie__info--btn btn btn-lg btn-primary mt-3"
+      (click)="makeFavorite()"
     >
       Favorite
-      <fa-icon [icon]="heartRegular"></fa-icon>
+      <fa-icon [icon]="movie.Favorite ? heartSolid : heartRegular"></fa-icon>
     </button>
   </div>
   <div class="omdb-search-movie__poster">

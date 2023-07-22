@@ -26,18 +26,43 @@ export const initialMoviesState: MoviesState = moviesAdapter.getInitialState({
 
 const reducer = createReducer(
   initialMoviesState,
+
+  /**
+   * Search Movies Reducers
+   */
   on(MoviesActions.searchMovies, (state) => ({
     ...state,
     loaded: false,
     error: null,
   })),
-  on(MoviesActions.clearMovies, (state) =>
-    moviesAdapter.setAll([], { ...state, loaded: true })
-  ),
+
   on(MoviesActions.searchMoviesSuccess, (state, { movies }) =>
     moviesAdapter.setAll(movies, { ...state, loaded: true })
   ),
   on(MoviesActions.searchMoviesFailure, (state, { error }) => ({
+    ...state,
+    error,
+  })),
+
+  /**
+   * Clear Movies Reducers
+   */
+  on(MoviesActions.clearMovies, (state) =>
+    moviesAdapter.setAll([], { ...state, loaded: true })
+  ),
+  /**
+   * Favorite Movies Reducers
+   */
+  on(MoviesActions.favoriteMovie, (state) => ({
+    ...state,
+    loaded: false,
+    error: null,
+  })),
+
+  on(MoviesActions.favoriteMovieSuccess, (state, { movies }) =>
+    moviesAdapter.setAll(movies, { ...state, loaded: true })
+  ),
+  on(MoviesActions.favoriteMovieFailure, (state, { error }) => ({
     ...state,
     error,
   }))

@@ -23,4 +23,19 @@ export class MoviesEffects {
       })
     )
   );
+
+  favorite$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(MoviesActions.favoriteMovie),
+      exhaustMap((action) =>
+        this.moviesService
+          .favoriteMovie(action.title)
+          .pipe(map((movies) => MoviesActions.favoriteMovieSuccess({ movies })))
+      ),
+      catchError((error) => {
+        console.error('Error', error);
+        return of(MoviesActions.favoriteMovieFailure({ error }));
+      })
+    )
+  );
 }

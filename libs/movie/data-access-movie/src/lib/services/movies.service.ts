@@ -18,4 +18,14 @@ export class MoviesService {
 
     return this.httpClient.get<MoviesEntity>(url).pipe(map((movie) => [movie]));
   }
+
+  favoriteMovie(title: string): Observable<MoviesEntity[]> {
+    return this.searchMovieByTitle(title).pipe(
+      map((movies) => {
+        const [favoriteMovie, ...rest] = movies;
+        favoriteMovie.Favorite = true;
+        return [favoriteMovie, ...rest];
+      })
+    );
+  }
 }
