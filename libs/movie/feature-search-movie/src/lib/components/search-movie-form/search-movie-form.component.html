@@ -5,6 +5,7 @@
       type="text"
       [formControl]="control"
       [placeholder]="placeholder"
+      (omdbSearchEnterKeyEvent)="onSearch()"
     />
   </div>
   <div class="search-movie-form__btn mt-3">

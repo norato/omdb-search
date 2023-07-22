@@ -1,6 +1,7 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 
 .omdb-search-movie {
+  padding: 18px 0;
   display: grid;
   grid-template-areas:
     'title'
@@ -26,6 +27,7 @@
 .omdb-search-movie > .omdb-search-movie__poster {
   grid-area: poster;
   margin-bottom: 24px;
+  justify-self: end;
 }
 
 @include media-breakpoint-up(lg) {

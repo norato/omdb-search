@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EnterKeyEventDirective } from '@omdb-search/shared';
 
 @Component({
   selector: 'omdb-search-search-movie-form',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, EnterKeyEventDirective],
   templateUrl: './search-movie-form.component.html',
   styleUrls: ['./search-movie-form.component.scss'],
 })
