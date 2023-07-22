@@ -6,6 +6,8 @@ export const searchMovies = createAction(
   props<{ title: string }>()
 );
 
+export const clearMovies = createAction('[Movies Page] Clear Movie');
+
 export const searchMoviesSuccess = createAction(
   '[Movies/API] Search Movies Success',
   props<{ movies: MoviesEntity[] }>()

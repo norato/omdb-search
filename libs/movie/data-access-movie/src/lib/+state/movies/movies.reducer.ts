@@ -31,6 +31,9 @@ const reducer = createReducer(
     loaded: false,
     error: null,
   })),
+  on(MoviesActions.clearMovies, (state) =>
+    moviesAdapter.setAll([], { ...state, loaded: true })
+  ),
   on(MoviesActions.searchMoviesSuccess, (state, { movies }) =>
     moviesAdapter.setAll(movies, { ...state, loaded: true })
   ),

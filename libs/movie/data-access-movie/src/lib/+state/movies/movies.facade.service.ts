@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { searchMovies } from './movies.actions';
+import { clearMovies, searchMovies } from './movies.actions';
 import { selectAllMovies } from './movies.selectors';
 
 @Injectable({
@@ -13,5 +13,9 @@ export class MoviesFacadeService {
 
   searchMovies(title: string) {
     this.store.dispatch(searchMovies({ title }));
+  }
+
+  clearMovies() {
+    this.store.dispatch(clearMovies());
   }
 }

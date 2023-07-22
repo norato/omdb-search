@@ -27,6 +27,8 @@ export class SearchMovieComponent {
   searchMovies(title: string | null) {
     if (title) {
       this.moviesFacade.searchMovies(title);
+    } else {
+      this.moviesFacade.clearMovies();
     }
   }
 }
