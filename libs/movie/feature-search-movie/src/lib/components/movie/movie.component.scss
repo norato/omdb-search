@@ -41,6 +41,13 @@
     grid-template-columns: 1fr 400px;
     align-items: left;
     text-align: left;
+    gap: 24px;
+  }
+
+  .omdb-search-movie > .omdb-search-movie__info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
 
   .omdb-search-movie

@@ -29,7 +29,7 @@ export interface MoviesEntity {
   Website?: string;
   Response?: string;
   // internal
-  Favorite: boolean;
+  Favorite?: boolean;
 }
 
 export interface Rating {

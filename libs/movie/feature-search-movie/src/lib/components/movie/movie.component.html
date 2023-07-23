@@ -2,17 +2,19 @@
   <h2 class="omdb-search-movie__title h1">{{ movie.Title }}</h2>
   <div class="omdb-search-movie__info">
     <p class="h3">{{ movie.Plot }}</p>
-    <div class="d-flex">
-      <label class="fw-bold me-3">Actors</label>
-      <p>{{ movie.Actors }}</p>
-    </div>
-    <div class="d-flex">
-      <label class="fw-bold me-3">Reviews</label>
-      <omdb-search-star-rating
-        *ngIf="movie.Ratings"
-        [topStars]="5"
-        [rating]="movie.Ratings[0].Value"
-      />
+    <div>
+      <div class="d-flex">
+        <label class="fw-bold me-3">Actors</label>
+        <p>{{ movie.Actors }}</p>
+      </div>
+      <div class="d-flex">
+        <label class="fw-bold me-3">Reviews</label>
+        <omdb-search-star-rating
+          *ngIf="movie.Ratings"
+          [topStars]="5"
+          [rating]="movie.Ratings[0].Value"
+        />
+      </div>
     </div>
 
     <button
