@@ -19,13 +19,13 @@ describe('StarRatingComponent', () => {
       component = spectator.component;
     });
     it('when 75/100', () => {
-      expect(component.getRating('75/100', 5)).toEqual('4');
+      expect(component.getRating('75/100', 5)).toEqual(4);
     });
     it('when 50/100', () => {
-      expect(component.getRating('50/100', 5)).toEqual('3');
+      expect(component.getRating('50/100', 5)).toEqual(3);
     });
     it('when 100/100', () => {
-      expect(component.getRating('100/100', 5)).toEqual('5');
+      expect(component.getRating('100/100', 5)).toEqual(5);
     });
   });
 });
