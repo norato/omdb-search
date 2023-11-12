@@ -23,9 +23,7 @@
           "apps/omdb-search/src/styles.scss",
           "node_modules/bootstrap/scss/bootstrap.scss"
         ],
-        "scripts": [
-          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-        ]
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
       },
       "configurations": {
         "production": {
@@ -58,10 +56,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "omdb-search:build:production"
+          "buildTarget": "omdb-search:build:production"
         },
         "development": {
-          "browserTarget": "omdb-search:build:development"
+          "buildTarget": "omdb-search:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -69,11 +67,11 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "omdb-search:build"
+        "buildTarget": "omdb-search:build"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
@@ -86,14 +84,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/omdb-search/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/omdb-search/jest.config.ts"
       }
     },
     "serve-static": {
