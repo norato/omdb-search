@@ -14,12 +14,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a
-          *ngFor="let link of links"
-          class="nav-link"
-          [routerLink]="link.link"
-          >{{ link.title }}</a
-        >
+        @for (link of links; track link.title) {
+        <a class="nav-link" [routerLink]="link.link">{{ link.title }}</a>
+        }
       </div>
     </div>
   </div>

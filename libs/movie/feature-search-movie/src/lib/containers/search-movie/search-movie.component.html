@@ -8,8 +8,6 @@
   (search)="searchMovies($event)"
 />
 
-<omdb-search-movie
-  *ngIf="movies$ | async as movie"
-  [movie]="movie[0]"
-  (favorite)="makefavorite($event)"
-/>
+@if (movies$ | async; as movie) {
+<omdb-search-movie [movie]="movie[0]" (favorite)="makefavorite($event)" />
+}

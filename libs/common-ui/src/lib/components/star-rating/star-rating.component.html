@@ -1,6 +1,9 @@
-<ng-container *ngIf="rating">
-  <ng-container *omdbSearchForRange="topStars; let number = number">
-    <fa-icon [icon]="faStarSolid" *ngIf="number <= calculatedRating"></fa-icon>
-    <fa-icon [icon]="faStarRegular" *ngIf="number > calculatedRating"></fa-icon>
-  </ng-container>
+@if (rating) {
+<ng-container *omdbSearchForRange="topStars; let number = number">
+  @if (number <= calculatedRating) {
+  <fa-icon [icon]="faStarSolid"></fa-icon>
+  } @else {
+  <fa-icon [icon]="faStarRegular"></fa-icon>
+  }
 </ng-container>
+}
